@@ -66,8 +66,10 @@
                 <tbody>
                     <?php
                         //Get latest deposits transactions 
-                        $ret="SELECT * FROM  iB_Transactions  WHERE tr_type = 'Transfer' ";
+                        $client_id = $_SESSION['client_id']; 
+                        $ret="SELECT * FROM  iB_Transactions  WHERE tr_type = 'Transfer'AND client_id =? ";
                         $stmt= $mysqli->prepare($ret) ;
+                        $stmt->bind_param('i', $client_id);
                         $stmt->execute() ;//ok
                         $res=$stmt->get_result();
                         $cnt=1;

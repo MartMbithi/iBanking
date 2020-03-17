@@ -3,7 +3,7 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $admin_id = $_SESSION['admin_id'];
+  $client_id = $_SESSION['client_id'];
  
 ?>
 

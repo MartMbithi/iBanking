@@ -99,15 +99,6 @@
     $stmt->close();
     //Withdrawal Computations
 
-
-
-    //ibank loans
-    $result ="SELECT SUM(loan_amt) FROM iB_Loans ";
-    $stmt = $mysqli->prepare($result);
-    $stmt->execute();
-    $stmt->bind_result($loan_amt);
-    $stmt->fetch();
-    $stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -203,35 +194,7 @@
           </div>
           <!-- ./Balances-->
         </div>
-        <div class="row">
-
-        <!--Overall Money in the Bank-->         
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="info-box mb-6">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-wallet"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">iBank  Wallet</span>
-                <span class="info-box-number">Ksh <?php echo $new_amt;?></span>
-              </div>
-            </div>
-          </div>
-          <!-- ./ Overall Money-->
-
-        <!--Overall Loans given-->
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="info-box mb-6">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cart-arrow-down"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">iBank Loans</span>
-                <span class="info-box-number">Ksh <?php echo $loan_amt;?></span>
-              </div>
-            </div>
-          </div>
-        <!-- ./ Overall Loans -->  
-        </div>
-
+       
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -470,8 +433,10 @@
             { y:
               <?php 
               //return total number of accounts opened under savings acc type
-              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Savings' ";
+              $client_id =$_SESSION['client_id'];              
+              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Savings' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($savings);
               $stmt->fetch();
@@ -483,8 +448,10 @@
             { y:
               <?php 
               //return total number of accounts opened under  Retirement  acc type
-              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type =' Retirement' ";
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type =' Retirement' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Retirement);
               $stmt->fetch();
@@ -495,8 +462,10 @@
             { y: 
               <?php 
               //return total number of accounts opened under  Recurring deposit  acc type
-              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Recurring deposit' ";
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Recurring deposit' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Recurring);
               $stmt->fetch();
@@ -507,8 +476,10 @@
             { y:
               <?php 
               //return total number of accounts opened under  Fixed Deposit Account deposit  acc type
-              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Fixed Deposit Account' ";
-              $stmt = $mysqli->prepare($result);
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Fixed Deposit Account' AND client_id = ? ";
+              $stmt = $mysqli->prepare($result);              
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Fixed);
               $stmt->fetch();
@@ -518,9 +489,12 @@
 
             { y:
               <?php 
+
               //return total number of accounts opened under  Current account deposit  acc type
-              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Current account' ";
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_bankAccounts WHERE  acc_type ='Current account' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Current);
               $stmt->fetch();
@@ -550,8 +524,10 @@
             { y:
               <?php 
               //return total number of transactions under  Withdrawals
-              $result ="SELECT count(*) FROM iB_Transactions WHERE  tr_type ='Withdrawal' ";
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_Transactions WHERE  tr_type ='Withdrawal' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Withdrawals);
               $stmt->fetch();
@@ -563,8 +539,10 @@
             { y:
               <?php 
               //return total number of transactions under  Deposits
-              $result ="SELECT count(*) FROM iB_Transactions WHERE  tr_type ='Deposit' ";
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_Transactions WHERE  tr_type ='Deposit' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Deposits);
               $stmt->fetch();
@@ -575,8 +553,10 @@
             { y:
               <?php 
               //return total number of transactions under  Deposits
-              $result ="SELECT count(*) FROM iB_Transactions WHERE  tr_type ='Transfer' ";
+              $client_id  =$_SESSION['client_id'];
+              $result ="SELECT count(*) FROM iB_Transactions WHERE  tr_type ='Transfer' AND client_id =? ";
               $stmt = $mysqli->prepare($result);
+              $stmt->bind_param('i', $client_id);
               $stmt->execute();
               $stmt->bind_result($Transfers);
               $stmt->fetch();

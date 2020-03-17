@@ -78,15 +78,15 @@
                     <th>Transaction Amount</th>
                     <th>Acc Owner</th>
                     <th>Timestamp</th>
-                    <th>Action</th>
-
                 </tr>
                 </thead>
                 <tbody>
                     <?php
                         //Get latest transactions 
-                        $ret="SELECT * FROM `iB_Transactions` ORDER BY `iB_Transactions`.`created_at` DESC ";
+                        $client_id = $_SESSION['client_id'];
+                        $ret="SELECT * FROM `iB_Transactions` WHERE client_id =? ORDER BY `iB_Transactions`.`created_at` DESC ";
                         $stmt= $mysqli->prepare($ret) ;
+                        $stmt->bind_param('i', $client_id);
                         $stmt->execute() ;//ok
                         $res=$stmt->get_result();
                         $cnt=1;
@@ -119,13 +119,7 @@
                             <td>Ksh <?php echo $row->transaction_amt;?></td>
                             <td><?php echo $row->client_name;?></td>
                             <td><?php echo date("d-M-Y h:m:s ", strtotime($transTstamp));?></td>
-                            <td>
-                                <a class="badge badge-danger" href="pages_transactions_engine.php?RollBack_Transaction=<?php echo $row->tr_id;?>">
-                                    <i class="fas fa-power-off"></i>
-                                        Roll Back Transaction
-                                </a>
                             
-                            </td>
                         </tr>
                     <?php $cnt = $cnt +1; }?>    
                 </tfoot>

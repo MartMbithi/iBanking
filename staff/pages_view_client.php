@@ -17,7 +17,7 @@
             $address  = $_POST['address'];
 
             $profile_pic  = $_FILES["profile_pic"]["name"];
-            move_uploaded_file($_FILES["profile_pic"]["tmp_name"],"dist/img/".$_FILES["profile_pic"]["name"]);
+            move_uploaded_file($_FILES["profile_pic"]["tmp_name"],"../admin/dist/img/".$_FILES["profile_pic"]["name"]);
             
             //Insert Captured information to a database table
             $query="UPDATE  iB_clients SET name=?, national_id=?, phone=?, email=?, address=?, profile_pic=? WHERE client_number = ?";
@@ -89,7 +89,7 @@
                         $profile_picture = "
 
                         <img class='img-fluid'
-                        src='dist/img/user_icon.png'
+                        src='../admin/dist/img/user_icon.png'
                         alt='User profile picture'>
 
                         ";
@@ -100,7 +100,7 @@
                         $profile_picture = "
 
                         <img class=' img-fluid'
-                        src='dist/img/$row->profile_pic'
+                        src='../admin/dist/img/$row->profile_pic'
                         alt='User profile picture'>
 
                         ";

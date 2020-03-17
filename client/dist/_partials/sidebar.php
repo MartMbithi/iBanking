@@ -84,18 +84,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages_add_acc_type.php" class="nav-link">
-                  <i class="far fas fa-plus nav-icon"></i>
-                  <p>Add Acc Type</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages_manage_accs.php" class="nav-link">
-                  <i class="fas fa-cogs nav-icon"></i>
-                  <p>Manage Acc Types</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="pages_open_acc.php" class="nav-link">
                   <i class="fas fa-lock-open nav-icon"></i>
                   <p>Open iBank Acc</p>
@@ -104,7 +92,7 @@
               <li class="nav-item">
                 <a href="pages_manage_acc_openings.php" class="nav-link">
                   <i class="fas fa-cog nav-icon"></i>
-                  <p>Manange Acc Openings</p>
+                  <p>My iBank Accounts</p>
                 </a>
               </li>
             </ul>
@@ -139,12 +127,7 @@
                   <p>Transfers</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages_loans.php" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Loans</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="pages_balance_enquiries.php" class="nav-link">
                   <i class="fas fa-money-bill-alt nav-icon"></i>
@@ -197,17 +180,6 @@
             </ul>
           </li>
           <!-- ./ End financial Reporting-->
-
-          <!--Password Resets-->
-          <li class="nav-item">
-            <a href="pages_manage_reset_pwd.php" class="nav-link">
-              <i class="nav-icon fas fa-lock"></i>
-              <p>
-                Manage Resets
-              </p>
-            </a>
-          </li>
-          <!-- ./ Password Resets-->
 
           <!-- Log Out -->
           <li class="nav-item">
