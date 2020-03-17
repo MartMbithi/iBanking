@@ -3,8 +3,7 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
- 
+  $client_id = $_SESSION['client_id'];
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +63,10 @@
                 <tbody>
                     <?php
                         //fetch all iB_Accs
-                        $ret="SELECT * FROM  iB_bankAccounts ";
+                        $client_id = $_SESSION['client_id'];
+                        $ret="SELECT * FROM  iB_bankAccounts  WHERE client_id = ?";
                         $stmt= $mysqli->prepare($ret) ;
+                        $stmt->bind_param('i', $client_id);
                         $stmt->execute() ;//ok
                         $res=$stmt->get_result();
                         $cnt=1;

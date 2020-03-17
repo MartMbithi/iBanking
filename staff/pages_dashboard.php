@@ -108,15 +108,6 @@
     $stmt->close();
     //Withdrawal Computations
 
-
-
-    //ibank loans
-    $result ="SELECT SUM(loan_amt) FROM iB_Loans ";
-    $stmt = $mysqli->prepare($result);
-    $stmt->execute();
-    $stmt->bind_result($loan_amt);
-    $stmt->fetch();
-    $stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -257,35 +248,7 @@
           </div>
           <!-- ./Balances-->
         </div>
-        <div class="row">
-
-        <!--Overall Money in the Bank-->         
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="info-box mb-6">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-wallet"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">iBank  Wallet</span>
-                <span class="info-box-number">Ksh <?php echo $new_amt;?></span>
-              </div>
-            </div>
-          </div>
-          <!-- ./ Overall Money-->
-
-        <!--Overall Loans given-->
-          <div class="col-12 col-sm-6 col-md-6">
-            <div class="info-box mb-6">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cart-arrow-down"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">iBank Loans</span>
-                <span class="info-box-number">Ksh <?php echo $loan_amt;?></span>
-              </div>
-            </div>
-          </div>
-        <!-- ./ Overall Loans -->  
-        </div>
-
+      
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -351,7 +314,7 @@
                   <!-- /.col -->
                   <div class="col-sm-3 col-6">
                     <div class="description-block">
-                      <h5 class="description-header">Ksh <?php echo $new_amt;?> </h5>
+                      <h5 class="description-header">Ksh <?php echo $TotalBalInAccount;?> </h5>
                       <span class="description-text">TOTAL MONEY IN iBANK Account</span>
                     </div>
                     <!-- /.description-block -->

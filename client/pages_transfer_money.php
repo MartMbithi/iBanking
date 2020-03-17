@@ -3,9 +3,8 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
-  //register new account
-  
+  $client_id = $_SESSION['client_id'];
+ 
     if(isset($_POST['deposit']))
     {
             $tr_code = $_POST['tr_code'];

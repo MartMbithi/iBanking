@@ -3,52 +3,53 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
-  //update logged in user account
-  if(isset($_POST['update_staff_account']))
+  $client_id = $_SESSION['client_id'];
+
+  if(isset($_POST['update_client_account']))
         {
-            //Register  Staff
+            //update client
             $name = $_POST['name'];
-            $staff_id = $_SESSION['staff_id'];
+            $national_id =$_POST['national_id'];
+            $client_number = $_GET['client_number'];
             $phone = $_POST['phone'];
             $email = $_POST['email'];
             //$password = sha1(md5($_POST['password']));
-            $sex  = $_POST['sex'];
+            $address  = $_POST['address'];
 
             $profile_pic  = $_FILES["profile_pic"]["name"];
             move_uploaded_file($_FILES["profile_pic"]["tmp_name"],"../admin/dist/img/".$_FILES["profile_pic"]["name"]);
             
             //Insert Captured information to a database table
-            $query="UPDATE iB_staff SET name=?, phone=?, email=?, sex=?, profile_pic=? WHERE staff_id=?";
+            $query="UPDATE  iB_clients SET name=?, national_id=?, phone=?, email=?, address=?, profile_pic=? WHERE client_number = ?";
             $stmt = $mysqli->prepare($query);
             //bind paramaters
-            $rc=$stmt->bind_param('sssssi', $name, $phone, $email, $sex, $profile_pic, $staff_id);
+            $rc=$stmt->bind_param('sssssss', $name, $national_id, $phone, $email,  $address, $profile_pic, $client_number);
             $stmt->execute();
 
             //declare a varible which will be passed to alert function
             if($stmt)
             {
-                $success = "Staff Account Udated";
+                $success = "Client Account Updated";
             }
             else {
                 $err = "Please Try Again Or Try Later";
-            } 
+            }  
         }    
         //change password
-        if(isset($_POST['change_staff_password']))
+        if(isset($_POST['change_client_password']))
         {
             $password = sha1(md5($_POST['password']));
-            $staff_id = $_SESSION['staff_id'];
+            $client_number = $_GET['client_number'];
             //insert unto certain table in database
-            $query="UPDATE iB_staff  SET password=? WHERE  staff_id=?";
+            $query="UPDATE iB_clients  SET password=? WHERE  client_number=?";
             $stmt = $mysqli->prepare($query);
             //bind paramaters
-            $rc=$stmt->bind_param('si', $password, $staff_id);
+            $rc=$stmt->bind_param('ss', $password, $client_number);
             $stmt->execute();
             //declare a varible which will be passed to alert function
             if($stmt)
             {
-                $success = "Staff Password Updated";
+                $success = "Client Password Updated";
             }
             else {
                 $err = "Please Try Again Or Try Later";
@@ -74,10 +75,10 @@
         <div class="content-wrapper">
             <!-- Content Header with logged in user details (Page header) -->
             <?php
-                $staff_id = $_SESSION['staff_id'];
-                $ret="SELECT * FROM  iB_staff  WHERE staff_id = ? "; 
+                $client_id = $_SESSION['client_id'];
+                $ret="SELECT * FROM  iB_clients  WHERE client_id = ? "; 
                 $stmt= $mysqli->prepare($ret) ;
-                $stmt->bind_param('i', $staff_id);
+                $stmt->bind_param('s', $client_id);
                 $stmt->execute() ;//ok
                 $res=$stmt->get_result();
                 while($row=$res->fetch_object())
@@ -116,8 +117,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="pages_manage.php">iBanking Staffs</a></li>
-                    <li class="breadcrumb-item"><a href="pages_manage.php">Manage</a></li>
+                    <li class="breadcrumb-item"><a href="pages_manage_clients.php">iBanking Clients</a></li>
+                    <li class="breadcrumb-item"><a href="pages_manage_clients.php">Manage</a></li>
                     <li class="breadcrumb-item active"><?php echo $row->name;?></li>
                     </ol>
                 </div>
@@ -140,9 +141,12 @@
 
                         <h3 class="profile-username text-center"><?php echo $row->name;?></h3>
 
-                        <p class="text-muted text-center">Staff @iBanking </p>
+                        <p class="text-muted text-center">Client @iBanking </p>
 
                         <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>ID No.: </b> <a class="float-right"><?php echo $row->national_id;?></a>
+                        </li>
                         <li class="list-group-item">
                             <b>Email: </b> <a class="float-right"><?php echo $row->email;?></a>
                         </li>
@@ -150,10 +154,10 @@
                             <b>Phone: </b> <a class="float-right"><?php echo $row->phone;?></a>
                         </li>
                         <li class="list-group-item">
-                            <b>StaffNo: </b> <a class="float-right"><?php echo $row->staff_number;?></a>
+                            <b>ClientNo: </b> <a class="float-right"><?php echo $row->client_number;?></a>
                         </li>
                         <li class="list-group-item">
-                            <b>Gender: </b> <a class="float-right"><?php echo $row->sex;?></a>
+                            <b>Address: </b> <a class="float-right"><?php echo $row->address;?></a>
                         </li>
                         
                         </ul>
@@ -232,7 +236,19 @@
                             <div class="form-group row">
                                 <label for="inputName2" class="col-sm-2 col-form-label">Phone Number</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" required name="phone" value="<?php echo $row->phone;?>" id="inputName2">
+                                <input type="text" class="form-control" required  name="phone" value="<?php echo $row->phone;?>" id="inputName2">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputName2" class="col-sm-2 col-form-label">National ID Number</label>
+                                <div class="col-sm-10">
+                                <input type="text" class="form-control" required readonly name="national_id" value="<?php echo $row->national_id ;?>" id="inputName2">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputName2" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-10">
+                                <input type="text" class="form-control" required  name="address" value="<?php echo $row->address ;?>" id="inputName2">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -245,17 +261,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputName2" class="col-sm-2 col-form-label">Gender</label>
-                                <div class="col-sm-10">
-                                <select class="form-control" name="sex">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="offset-sm-2 col-sm-10">
-                                <button name="update_staff_account"  type="submit" class="btn btn-outline-success">Update Account</button>
+                                <button name="update_client_account"  type="submit" class="btn btn-outline-success">Update Account</button>
                                 </div>
                             </div>
                             </form>
@@ -284,7 +291,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="offset-sm-2 col-sm-10">
-                                <button type="submit" name="change_staff_password"  class="btn btn-outline-primary">Change Password</button>
+                                <button type="submit" name="change_client_password"  class="btn btn-outline-primary">Change Password</button>
                                 </div>
                             </div>
 

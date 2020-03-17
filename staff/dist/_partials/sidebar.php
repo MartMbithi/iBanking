@@ -191,12 +191,14 @@
                   <p>Transfers</p>
                 </a>
               </li>
+              <!--
               <li class="nav-item">
                 <a href="pages_loans.php" class="nav-link">
                   <i class="fas fa-cart-arrow-down nav-icon"></i>
                   <p>Loans</p>
                 </a>
               </li>
+              -->
               <li class="nav-item">
                 <a href="pages_balance_enquiries.php" class="nav-link">
                   <i class="fas fa-money-bill-alt nav-icon"></i>

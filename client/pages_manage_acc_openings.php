@@ -3,26 +3,7 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
-  //fire staff
-  if(isset($_GET['deleteBankAcc']))
-  {
-        $id=intval($_GET['deleteBankAcc']);
-        $adn="DELETE FROM  iB_bankAccounts  WHERE account_id = ?";
-        $stmt= $mysqli->prepare($adn);
-        $stmt->bind_param('i',$id);
-        $stmt->execute();
-        $stmt->close();	 
-  
-          if($stmt)
-          {
-            $info = "iBanking Account Closed";
-          }
-            else
-            {
-                $err = "Try Again Later";
-            }
-    }
+  $client_id = $_SESSION['client_id'];
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +26,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Manage iBanking Accounts</h1>
+            <h1>My iBanking Accounts</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
               <li class="breadcrumb-item"><a href="pages_manage_acc_openings.php">iBank Accounts</a></li>
-              <li class="breadcrumb-item active">Manage Accounts</li>
+              <li class="breadcrumb-item active">My Accounts</li>
             </ol>
           </div>
         </div>
@@ -64,7 +45,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Select on any action options to manage your accounts</h3>
+              <h3 class="card-title">iBanking Accounts</h3>
             </div>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -77,14 +58,15 @@
                   <th>Acc Type</th>
                   <th>Acc Owner</th>
                   <th>Date Opened</th>
-                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php
                         //fetch all iB_Accs
-                        $ret="SELECT * FROM  iB_bankAccounts ORDER BY RAND() ";
+                        $client_id = $_SESSION['client_id'];
+                        $ret="SELECT * FROM  iB_bankAccounts WHERE client_id =? ";
                         $stmt= $mysqli->prepare($ret) ;
+                        $stmt->bind_param('i', $client_id);
                         $stmt->execute() ;//ok
                         $res=$stmt->get_result();
                         $cnt=1;
@@ -103,22 +85,6 @@
                             <td><?php echo $row->acc_type;?></td>
                             <td><?php echo $row->client_name;?></td>
                             <td><?php echo date("d-M-Y", strtotime($dateOpened));?></td>
-                            <td>
-                                <a class="badge badge-success" href="pages_update_client_accounts.php?account_id=<?php echo $row->account_id;?>">
-                                    <i class="fas fa-cogs"></i>
-                                        <i class="fas fa-briefcase"></i>
-                                            Manage
-                                </a>
-                               
-                                <a class="badge badge-danger" href="pages_manage_acc_openings.php?deleteBankAcc=<?php echo $row->account_id;?>">
-                                    <i class="fas fa-times"></i>
-                                        <i class="fas fa-briefcase"></i>
-                                            Close Account
-                                </a>
-
-                            
-                            </td>
-
                         </tr>
                     <?php $cnt = $cnt +1; }?>    
                 </tfoot>
