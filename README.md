@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><img src="https://github.com/MartMbithi/DevLan/blob/master/logo.png"></p>
 
 
@@ -19,6 +20,14 @@ DevLan is an oline platform  that provides hosting for software development vers
 
 ## License
 
+=======
+# iBanking
+iBanking a Prototype of a middle and low level financial management system, crafted with Laravel, Bootstrap and Javascript, it implements most of all features and functionalities thus will help in eliminating day to day madness in these financial and savings corporations.
+>>>>>>> ea348e4a9e1b85631a548f6f0ff3672bbd5f633d
 
 The DevLan Platform is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+<<<<<<< HEAD
+=======
+The iBanking is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+>>>>>>> ea348e4a9e1b85631a548f6f0ff3672bbd5f633d
