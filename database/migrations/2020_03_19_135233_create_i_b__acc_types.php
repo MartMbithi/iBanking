@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminTable extends Migration
+class CreateIBAccTypes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
-            $table->bigIncrements('amin_id')->unique();
-            $table->string('email');
-            $table->string('password');
+        Schema::create('i_b__acc_types', function (Blueprint $table) {
+            $table->bigIncrements('acctype_id')->unique();
+            $table->string('name');
+            $table->longText('description');
+            $table->integer('rate');
+            $table->string('code');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('i_b__acc_types');
     }
 }
