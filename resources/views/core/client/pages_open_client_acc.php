@@ -3,7 +3,7 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $astaff_id = $_SESSION['staff_id'];
+  $aclient_id = $_SESSION['client_id'];
   //register new account
   if(isset($_POST['open_account']))
   {

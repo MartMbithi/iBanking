@@ -3,7 +3,7 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
+  $client_id = $_SESSION['client_id'];
   
 ?>
 
@@ -27,7 +27,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>iBanking Clients With Bank Acounts</h1>
+            <h1>My iBank Accounts</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -65,8 +65,10 @@
                 <tbody>
                     <?php
                         //fetch all iBank clients
-                        $ret="SELECT * FROM  iB_clients ORDER BY RAND() ";
+                        $client_id = $_SESSION['client_id'];
+                        $ret="SELECT * FROM  iB_clients  WHERE client_id =?";
                         $stmt= $mysqli->prepare($ret) ;
+                        $stmt->bind_param('i', $client_id);
                         $stmt->execute() ;//ok
                         $res=$stmt->get_result();
                         $cnt=1;
@@ -87,7 +89,7 @@
                                 <a class="badge badge-success" href="pages_view_client_bank_acc.php?client_number=<?php echo $row->client_number;?>&client_id=<?php echo $row->client_id;?>">
                                     <i class="fas fa-eye"></i>
                                         <i class="fas fa-briefcase"></i>
-                                            Check Bank Accounts
+                                            Check Bank Accounts Balance
                                 </a>
                                                            
                             </td>
