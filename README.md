@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/MartMbithi/DevLan/blob/master/logo.png"></p>
+<p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/resources/views/core/assets/images/logo3.png"></p>
 
 
 ## iBanking
@@ -16,8 +16,8 @@ iBanking a Prototype of a middle and low level financial management system, craf
 
 ## Glance of the system
 
-<p align="center"><img src="https://github.com/Trans-DevLan/Devlan_version2.0/blob/master/public/Screenshot.png"></p>
-<p align="center"><img src="https://github.com/Trans-DevLan/Devlan_version2.0/blob/master/public/Screenshot.1.png"></p>
+<p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/1.png"></p>
+<p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/2.png"></p>
 
 
 ## License
