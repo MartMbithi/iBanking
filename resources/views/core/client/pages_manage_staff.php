@@ -3,12 +3,12 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
+  $client_id = $_SESSION['client_id'];
   //fire staff
   if(isset($_GET['fireStaff']))
   {
         $id=intval($_GET['fireStaff']);
-        $adn="DELETE FROM  iB_staff  WHERE staff_id = ?";
+        $adn="DELETE FROM  iB_staff  WHERE client_id = ?";
         $stmt= $mysqli->prepare($adn);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -106,7 +106,7 @@
                                             Manage
                                 </a>
                                
-                                <a class="badge badge-danger" href="pages_manage_staff.php?fireStaff=<?php echo $row->staff_id;?>">
+                                <a class="badge badge-danger" href="pages_manage_staff.php?fireStaff=<?php echo $row->client_id;?>">
                                     <i class="fas fa-trash"></i>
                                         <i class="fas fa-user-tie"></i>
                                             Delete

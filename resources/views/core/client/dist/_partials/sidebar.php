@@ -129,7 +129,7 @@
               </li>
               
               <li class="nav-item">
-                <a href="pages_balance_enquiries.php" class="nav-link">
+                <a href="pages_view_client_bank_acc.php" class="nav-link">
                   <i class="fas fa-money-bill-alt nav-icon"></i>
                   <p>Balance Enquiries</p>
                 </a>

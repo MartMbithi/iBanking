@@ -3,7 +3,7 @@
   include('conf/config.php');
   include('conf/checklogin.php');
   check_login();
-  $staff_id = $_SESSION['staff_id'];
+  $client_id = $_SESSION['client_id'];
   //roll back transaction
   if(isset($_GET['RollBack_Transaction']))
   {
