@@ -17,7 +17,6 @@ class CreateIBTransactions extends Migration
             $table->bigIncrements('tr_id')->unique();
             $table->string('tr_code');
             $table->integer('account_id');
-            $table->integer('acc_name');
             $table->string('acc_name');
             $table->string('account_number');
             $table->string('acc_type');
