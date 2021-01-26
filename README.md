@@ -26,7 +26,9 @@ iBanking an Information System, crafted with Laravel, Bootstrap and Javascript, 
     Create Client Account
 ```
 <p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/1.png"></p>
-<p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/2.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/MartMbithi/iBanking/master/2.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/MartMbithi/iBanking/master/3.png"></p>
+
 
 ## License
 
