@@ -38,7 +38,7 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    
+
     <!-- header-area start -->
     <header class="header-area header-area3 header-area2">
         <div class="header-top">
@@ -48,7 +48,7 @@
                         <ul class="contact-info d-flex">
                             <li>
                                 <span><i class="fa fa-phone"></i> +254 737 229776</span>
-                                <span><i class="fa fa-fax"></i>   +254 796 967769</span>
+                                <span><i class="fa fa-fax"></i> +254 796 967769</span>
                             </li>
                             <li>
                                 <span><i class="fa fa-envelope"></i> info@ibanking.com</span>
@@ -81,9 +81,9 @@
                     <div class="col-lg-7 col-sm-9 d-none d-lg-block">
                         <ul class="mainmenu d-flex justify-content-end">
                             <li class="active"><a href="index.php">Home </a>
-                            <li><a  target="_blank" href="client/pages_client_index.php">Client Portal </a></li>
+                            <li><a target="_blank" href="client/pages_client_index.php">Client Portal </a></li>
                             <li><a target="_blank" href="staff/pages_staff_index.php">Staff Portal </a></li>
-                            <li><a  target="_blank" href="admin/pages_index.php">Administrator Portal</a></li>
+                            <li><a target="_blank" href="admin/pages_index.php">Administrator Portal</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-sm-3 col-8">
@@ -107,9 +107,9 @@
                         <div class="col-12">
                             <ul class="metismenu">
                                 <li class="active"><a href="index.php">Home </a>
-                                <li><a  target="_blank" href="client/pages_client_index.php">Client Portal </a></li>
+                                <li><a target="_blank" href="client/pages_client_index.php">Client Portal </a></li>
                                 <li><a target="_blank" href="staff/pages_staff_index.php">Staff Portal </a></li>
-                                <li><a  target="_blank" href="admin/pages_index.php">Administrator Portal</a></li>
+                                <li><a target="_blank" href="admin/pages_index.php">Administrator Portal</a></li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
             </div>
             <!-- responsive-menu area start -->
         </div>
-        
+
     </header>
     <!-- header-area end -->
 
@@ -131,8 +131,8 @@
                         <div class="row">
                             <div class="text-center col-12 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                                 <h2><span>iBank</span></h2>
-                                <p>Your Trusted eBanking Agent</p>  
-                                <p>Safe, Fast, Secure And Effective Banking</p>     
+                                <p>Your Trusted eBanking Agent</p>
+                                <p>Safe, Fast, Secure And Effective Banking</p>
                                 <ul>
                                     <li><a href="client/pages_client_index.php">JOIN NOW</a></li>
                                 </ul>
@@ -148,8 +148,8 @@
                         <div class="row">
                             <div class="text-center col-12 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                                 <h2><span>iBank</span></h2>
-                                <p>Your Trusted eBanking Agent</p>  
-                                <p>Safe, Fast, Secure And Effective Banking</p>     
+                                <p>Your Trusted eBanking Agent</p>
+                                <p>Safe, Fast, Secure And Effective Banking</p>
                                 <ul>
                                     <li><a href="client/pages_client_index.php">JOIN NOW</a></li>
                                 </ul>
@@ -165,8 +165,8 @@
                         <div class="row">
                             <div class="text-center col-12 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                                 <h2><span>iBank</span></h2>
-                                <p>Your Trusted eBanking Agent</p>  
-                                <p>Safe, Fast, Secure And Effective Banking</p>     
+                                <p>Your Trusted eBanking Agent</p>
+                                <p>Safe, Fast, Secure And Effective Banking</p>
                                 <ul>
                                     <li><a href="client/pages_client_index.php">JOIN NOW</a></li>
                                 </ul>
@@ -212,7 +212,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="featured-wrap active">
-                        <span class="flaticon-bitcoin-8"></span> 
+                        <span class="flaticon-bitcoin-8"></span>
                         <h2><a href="#">Effective</a></h2>
                         <p>Ibank is effective and efficient which guarantees 100% uptime.</p>
                     </div>
@@ -225,7 +225,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- featured-area end -->
@@ -249,7 +249,7 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="about-content">
-                        <h3>iBank is an Online Banking Agency  which its main goal is to increase security, effectiveness and efficiency in the banking sector by providing a secure, seamless and an effective platform for clients to
+                        <h3>iBank is an Online Banking Agency which its main goal is to increase security, effectiveness and efficiency in the banking sector by providing a secure, seamless and an effective platform for clients to
                             keep their funds securely.</h3>
                     </div>
                     <div class="row">
@@ -274,7 +274,7 @@
                                 <p>iBank Users</p>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -289,9 +289,11 @@
                 <div class="row">
                     <div class="col-12 copyright">
                         <p>
-                        <!-- Link back to MartDevelopers can't be removed. -->
-                            iBank Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Proudly Powered by  <a href="https://martdev.info" target="_blank" class="text-primary">MartDevelopers</a>
-                        <!-- Link back to MartDevelopers can't be removed. -->
+                            <!-- Link back to MartDevelopers can't be removed. -->
+                            iBank Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | Proudly Powered by <a href="https://martdev.info" target="_blank" class="text-primary">MartDevelopers</a>
+                            <!-- Link back to MartDevelopers can't be removed. -->
                         </p>
                     </div>
                 </div>
@@ -319,35 +321,37 @@
     <!-- plugins js -->
     <script src="assets/js/plugins.js "></script>
     <script>
-            // chart
-    window.onload = function () {
-    var limit = 10000;    //increase number of dataPoints by increasing the limit
-    var y = 100;    
-    var data = [];
-    var dataSeries = { type: "line" };
-    var dataPoints = [];
-    for (var i = 0; i < limit; i += 1) {
-        y += Math.round(Math.random() * 10 - 5);
-        dataPoints.push({
-            x: i,
-            y: y
-        });
-    }
-    dataSeries.dataPoints = dataPoints;
-    data.push(dataSeries);
+        // chart
+        window.onload = function() {
+            var limit = 10000; //increase number of dataPoints by increasing the limit
+            var y = 100;
+            var data = [];
+            var dataSeries = {
+                type: "line"
+            };
+            var dataPoints = [];
+            for (var i = 0; i < limit; i += 1) {
+                y += Math.round(Math.random() * 10 - 5);
+                dataPoints.push({
+                    x: i,
+                    y: y
+                });
+            }
+            dataSeries.dataPoints = dataPoints;
+            data.push(dataSeries);
 
-    //Better to construct options first and then pass it as a parameter
-    var options = {
-        zoomEnabled: true,
-        animationEnabled: true,
-        axisY: {
-            includeZero: false
-        },
-        data: data  // random data
-    };
+            //Better to construct options first and then pass it as a parameter
+            var options = {
+                zoomEnabled: true,
+                animationEnabled: true,
+                axisY: {
+                    includeZero: false
+                },
+                data: data // random data
+            };
 
-        $("#chartContainer").CanvasJSChart(options);
-    }
+            $("#chartContainer").CanvasJSChart(options);
+        }
     </script>
     <!-- main js -->
     <script src="assets/js/scripts.js "></script>
