@@ -15,11 +15,11 @@ iBanking an Information System, crafted with Laravel, Bootstrap and Javascript, 
 ## Login Credentials
 ```
 1. Admin
-    Email    :
-    Password :
+    Email    : sysadmin@ibanking.com
+    Password : admin
 
 2. Staff
-    Email    :
+    Email    : 
     Password :
 
 3. Client

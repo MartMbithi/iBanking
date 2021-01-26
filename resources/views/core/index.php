@@ -35,9 +35,7 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+  
 
     <!-- header-area start -->
     <header class="header-area header-area3 header-area2">
@@ -48,7 +46,6 @@
                         <ul class="contact-info d-flex">
                             <li>
                                 <span><i class="fa fa-phone"></i> +254 737 229776</span>
-                                <span><i class="fa fa-fax"></i> +254 796 967769</span>
                             </li>
                             <li>
                                 <span><i class="fa fa-envelope"></i> info@ibanking.com</span>
