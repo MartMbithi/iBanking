@@ -1,35 +1,30 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo 
+  <!-- Brand Logo 
     and load this 
     page with logged in user instance
     -->
-    <?php
-        $client_id = $_SESSION['client_id'];
-        $ret="SELECT * FROM  iB_clients  WHERE client_id = ? "; 
-        $stmt= $mysqli->prepare($ret) ;
-        $stmt->bind_param('i', $client_id);
-        $stmt->execute() ;//ok
-        $res=$stmt->get_result();
-        while($row=$res->fetch_object())
-        {
-            //set automatically logged in user default image if they have not updated their pics
-            if($row->profile_pic == '')
-            {
-                $profile_picture = "<img src='../admin/dist/img/user_icon.png' class=' elevation-2' alt='User Image'>
+  <?php
+  $client_id = $_SESSION['client_id'];
+  $ret = "SELECT * FROM  iB_clients  WHERE client_id = ? ";
+  $stmt = $mysqli->prepare($ret);
+  $stmt->bind_param('i', $client_id);
+  $stmt->execute(); //ok
+  $res = $stmt->get_result();
+  while ($row = $res->fetch_object()) {
+    //set automatically logged in user default image if they have not updated their pics
+    if ($row->profile_pic == '') {
+      $profile_picture = "<img src='../admin/dist/img/user_icon.png' class=' elevation-2' alt='User Image'>
                 ";
-            }
-            else
-            {
-                $profile_picture = "<img src='../admin/dist/img/$row->profile_pic' class='elevation-2' alt='User Image'>
+    } else {
+      $profile_picture = "<img src='../admin/dist/img/$row->profile_pic' class='elevation-2' alt='User Image'>
                 ";
-            }
-            
-            
-    ?>
+    }
+
+
+  ?>
 
     <a href="pages_dashboard.php" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="iBanking Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      <img src="dist/img/AdminLTELogo.png" alt="iBanking Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">iBanking</span>
     </a>
 
@@ -38,10 +33,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <?php echo $profile_picture;?>
+          <?php echo $profile_picture; ?>
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $row->name;?></a>
+          <a href="#" class="d-block"><?php echo $row->name; ?></a>
         </div>
       </div>
 
@@ -56,13 +51,13 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                
+
               </p>
             </a>
           </li>
-        <!-- ./DAshboard -->
+          <!-- ./DAshboard -->
 
-        <!--Account -->
+          <!--Account -->
           <li class="nav-item">
             <a href="pages_account.php" class="nav-link">
               <i class="nav-icon fas fa-user-tie"></i>
@@ -127,7 +122,7 @@
                   <p>Transfers</p>
                 </a>
               </li>
-              
+
               <li class="nav-item">
                 <a href="pages_view_client_bank_acc.php" class="nav-link">
                   <i class="fas fa-money-bill-alt nav-icon"></i>
@@ -196,6 +191,5 @@
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
- <?php }?>
-
+</aside>
+<?php } ?>
