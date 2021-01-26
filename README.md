@@ -19,16 +19,14 @@ iBanking an Information System, crafted with Laravel, Bootstrap and Javascript, 
     Password : admin
 
 2. Staff
-    Email    : 
-    Password :
+    Email    : staff@ibanking.com
+    Password : admin
 
 3. Client
-    Email    :
-    Password :
+    Create Client Account
 ```
 <p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/1.png"></p>
 <p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/2.png"></p>
-
 
 ## License
 
