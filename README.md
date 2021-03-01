@@ -2,15 +2,14 @@
 
 ## iBanking
 
-iBanking an Information System, crafted with Laravel, Bootstrap and Javascript, it implements most of all basic features and functionalities thus will helping in elimination of day to day madness in these financial and savings corporations. 
+iBanking an Information System, which implements most of all basic features and functionalities thus will helping in elimination of day to day madness in these financial and savings corporations.
 
 ## Deployment
 1. Clone the repo or download as a zip<br>
 2. Extract it into <b>xampp/htdocs/</b> or <b>opt/lampp/htdocs/</b> or <b>var/www/html/</b>
-3. Run Composer install - Not Necessary
-4. Create a database named <b>martdevelopers_iBanking</b>
-5. Import attached .SQL File directly - Find it in this directory <b> database/martdevelopers_iBanking.sql </b>
-6. Access it directly on web browser by typing <i>http://Your Server Name Or IP Address/iBank/</i>
+3. Create a database named <b>martdevelopers_iBanking</b>
+4. Import attached .SQL File directly - Find it in this directory <b> database/martdevelopers_iBanking.sql </b>
+5. Access it directly on web browser by typing <i>http://Your Server Name Or IP Address/iBank/</i>
 
 ## Login Credentials
 ```
