@@ -10,9 +10,6 @@ if (isset($_POST['reset_pwd'])) {
   $stmt = $mysqli->prepare($query);
   $rc = $stmt->bind_param('sss', $email, $token, $dummy_pwd);
   $stmt->execute();
-  /*
-			*echo"<script>alert('Successfully Created Account Proceed To Log In ');</script>";
-			*/
   //declare a varible which will be passed to alert function
   if ($stmt) {
     $success = "Check your email for password reset instructions";
@@ -79,7 +76,7 @@ if (isset($_POST['reset_pwd'])) {
         </form>
 
         <p class="mt-3 mb-1">
-          <a href="pages_index.php">Login</a>
+          <a href="pages_staff_index.php">Login</a>
         </p>
 
       </div>
