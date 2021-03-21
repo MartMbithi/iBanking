@@ -64,7 +64,7 @@ if (isset($_POST['reset_password'])) {
 
           <div class="row">
             <div class="col-12">
-              <button type="submit" name="reset_pwd" class="btn btn-primary btn-block">Request new password</button>
+              <button type="submit" name="reset_password" class="btn btn-primary btn-block">Request new password</button>
             </div>
             <!-- /.col -->
           </div>
