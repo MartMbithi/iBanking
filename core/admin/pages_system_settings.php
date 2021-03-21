@@ -3,6 +3,34 @@ session_start();
 include('conf/config.php');
 include('conf/checklogin.php');
 check_login();
+/*  */
+if (isset($_POST['systemSettings'])) {
+  //Error Handling and prevention of posting double entries
+  $error = 0;
+  if (isset($_POST['sys_name']) && !empty($_POST['sys_name'])) {
+    $sys_name = mysqli_real_escape_string($mysqli, trim($_POST['sys_name']));
+  } else {
+    $error = 1;
+    $err = "System Name Cannot Be Empty";
+  }
+  if (!$error) {
+    $id = $_POST['id'];
+    $sys_tagline = $_POST['sys_tagline'];
+    $sys_logo = $_FILES['sys_logo']['name'];
+    move_uploaded_file($_FILES["logo"]["tmp_name"], "img/" . $_FILES["sys_logo"]["name"]);
+
+    $query = "UPDATE iB_SystemSettings SET sys_name =?, sys_logo =?, sys_tagline=? WHERE id = ?";
+    $stmt = $mysqli->prepare($query);
+    $rc = $stmt->bind_param('ssss',  $sys_name,  $sys_logo, $sys_tagline, $id);
+    $stmt->execute();
+    if ($stmt) {
+      $success = "Settings Updated" && header("refresh:1; url=pages_system_settings.php");
+    } else {
+      //inject alert that profile update task failed
+      $info = "Please Try Again Or Try Later";
+    }
+  }
+}
 ?>
 
 <!DOCTYPE html>
