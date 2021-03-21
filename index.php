@@ -6,5 +6,5 @@ if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
     $uri = 'http://';
 }
 $uri .= $_SERVER['HTTP_HOST'];
-header('Location: ' . $uri . '/iBanking/resources/views/core/');
+header('Location: ' . $uri . '/iBanking/core/');
 exit;
