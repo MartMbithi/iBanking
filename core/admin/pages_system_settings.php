@@ -3,22 +3,6 @@ session_start();
 include('conf/config.php');
 include('conf/checklogin.php');
 check_login();
-$admin_id = $_SESSION['admin_id'];
-//fire staff
-if (isset($_GET['ClearReset'])) {
-  $id = intval($_GET['ClearReset']);
-  $adn = "DELETE FROM  iB_password_resets  WHERE id = ?";
-  $stmt = $mysqli->prepare($adn);
-  $stmt->bind_param('i', $id);
-  $stmt->execute();
-  $stmt->close();
-
-  if ($stmt) {
-    $info = "Password Reset Request Purged";
-  } else {
-    $err = "Try Again Later";
-  }
-}
 ?>
 
 <!DOCTYPE html>
@@ -58,31 +42,69 @@ if (isset($_GET['ClearReset'])) {
       <section class="content">
         <div class="row">
           <div class="col-12">
-            <div class="card">
+            <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Select on any action options to manage password reset requests</h3>
+                <h3 class="card-title">Reconfigure This System Accordingly</h3>
               </div>
               <div class="card-body">
 
+                <?php
+                /* Persisit System Settings On Brand */
+                $ret = "SELECT * FROM `iB_SystemSettings` ";
+                $stmt = $mysqli->prepare($ret);
+                $stmt->execute(); //ok
+                $res = $stmt->get_result();
+                while ($sys = $res->fetch_object()) {
+                ?>
+                  <form method="post" enctype="multipart/form-data" role="form">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <label for="">Company Name</label>
+                          <input type="text" required name="sys_name" value="<?php echo $sys->sys_name; ?>" class="form-control">
+                          <input type="hidden" required name="sys_id" value="<?php echo $sys->id ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="">Company Tagline</label>
+                          <input type="text" required name="sys_tagline" value="<?php echo $sys->sys_tagline; ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="">System Logo</label>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input required name="sys_logo" type="file" class="custom-file-input">
+                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <button type="submit" name="systemSettings" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                <?php
+                } ?>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
+            <!-- /.card-body -->
           </div>
-          <!-- /.col -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
-      </section>
-      <!-- /.content -->
+        <!-- /.col -->
     </div>
-    <!-- /.content-wrapper -->
-    <?php include("dist/_partials/footer.php"); ?>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <?php include("dist/_partials/footer.php"); ?>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
 
