@@ -3,7 +3,6 @@ session_start();
 include('conf/config.php');
 include('conf/checklogin.php');
 check_login();
-/*  */
 if (isset($_POST['systemSettings'])) {
   //Error Handling and prevention of posting double entries
   $error = 0;
@@ -17,7 +16,7 @@ if (isset($_POST['systemSettings'])) {
     $id = $_POST['id'];
     $sys_tagline = $_POST['sys_tagline'];
     $sys_logo = $_FILES['sys_logo']['name'];
-    move_uploaded_file($_FILES["logo"]["tmp_name"], "img/" . $_FILES["sys_logo"]["name"]);
+    move_uploaded_file($_FILES["sys_logo"]["tmp_name"], "dist/img/" . $_FILES["sys_logo"]["name"]);
 
     $query = "UPDATE iB_SystemSettings SET sys_name =?, sys_logo =?, sys_tagline=? WHERE id = ?";
     $stmt = $mysqli->prepare($query);
@@ -75,7 +74,6 @@ if (isset($_POST['systemSettings'])) {
                 <h3 class="card-title">Reconfigure This System Accordingly</h3>
               </div>
               <div class="card-body">
-
                 <?php
                 /* Persisit System Settings On Brand */
                 $ret = "SELECT * FROM `iB_SystemSettings` ";
@@ -90,7 +88,7 @@ if (isset($_POST['systemSettings'])) {
                         <div class="form-group col-md-12">
                           <label for="">Company Name</label>
                           <input type="text" required name="sys_name" value="<?php echo $sys->sys_name; ?>" class="form-control">
-                          <input type="hidden" required name="sys_id" value="<?php echo $sys->id ?>" class="form-control">
+                          <input type="hidden" required name="id" value="<?php echo $sys->id ?>" class="form-control">
                         </div>
                         <div class="form-group col-md-12">
                           <label for="">Company Tagline</label>
@@ -120,19 +118,17 @@ if (isset($_POST['systemSettings'])) {
           <!-- /.card -->
         </div>
         <!-- /.col -->
+      </section>
+      <!-- /.content -->
     </div>
-    <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <?php include("dist/_partials/footer.php"); ?>
+    <!-- /.content-wrapper -->
+    <?php include("dist/_partials/footer.php"); ?>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
 
@@ -159,6 +155,10 @@ if (isset($_POST['systemSettings'])) {
         "info": true,
         "autoWidth": false,
       });
+    });
+    /* Custom File Uploads */
+    $(document).ready(function() {
+      bsCustomFileInput.init();
     });
   </script>
 </body>
