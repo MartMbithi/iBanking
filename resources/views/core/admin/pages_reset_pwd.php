@@ -1,23 +1,40 @@
 <?php
 session_start();
 include('conf/config.php');
-if (isset($_POST['reset_pwd'])) {
-  $email = $_POST['email'];
-  $token = $_POST['token'];
-  $dummy_pwd = $_POST['dummy_pwd'];
-
-  $query = "INSERT INTO iB_password_resets (email, token, dummy_pwd) VALUES (?,?,?)";
-  $stmt = $mysqli->prepare($query);
-  $rc = $stmt->bind_param('sss', $email, $token, $dummy_pwd);
-  $stmt->execute();
-  /*
-			*echo"<script>alert('Successfully Created Account Proceed To Log In ');</script>";
-			*/
-  //declare a varible which will be passed to alert function
-  if ($stmt) {
-    $success = "Check your email for password reset instructions";
+if (isset($_POST['reset_password'])) {
+  //prevent posting blank value for first name
+  $error = 0;
+  if (isset($_POST['email']) && !empty($_POST['email'])) {
+    $email = mysqli_real_escape_string($mysqli, trim($_POST['email']));
   } else {
-    $err = "Please Try Again Or Try Later";
+    $error = 1;
+    $err = "Enter Your Email";
+  }
+  if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $err = 'Invalid Email';
+  }
+  $checkEmail = mysqli_query($mysqli, "SELECT `email` FROM `iB_admin` WHERE `email` = '" . $_POST['email'] . "'") or exit(mysqli_error($mysqli));
+  if (mysqli_num_rows($checkEmail) > 0) {
+
+    $n = date('y');
+    $new_password = bin2hex(random_bytes($n));
+    //Insert Captured information to a database table
+    $query = "UPDATE iB_admin SET  password=? WHERE email =?";
+    $stmt = $mysqli->prepare($query);
+    //bind paramaters
+    $rc = $stmt->bind_param('ss', $new_password, $email);
+    $stmt->execute();
+    $_SESSION['email'] = $email;
+
+    if ($stmt) {
+      /* Alert */
+      $success = "Confim Your Password" && header("refresh:1; url=pages_confirm_password.php");
+    } else {
+      $err = "Password reset failed";
+    }
+  } else  // user does not exist
+  {
+    $err = "Email Does Not Exist";
   }
 }
 ?>
@@ -44,32 +61,7 @@ if (isset($_POST['reset_pwd'])) {
               </div>
             </div>
           </div>
-          <div class="input-group mb-3" style="display:none">
-            <?php
-            //PHP function to generate random numbers
-            $length = 20;
-            $_tk =  substr(str_shuffle('0123456789qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM'), 1, $length);
-            ?>
-            <input type="text" name="token" value="<?php echo $_tk; ?>" class="form-control" placeholder="Email">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3" style="display:none">
-            <?php
-            //PHP function to generate random numbers
-            $length = 8;
-            $Pwd =  substr(str_shuffle('0123456789qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM'), 1, $length);
-            ?>
-            <input type="text" name="dummy_pwd" value="<?php echo $Pwd; ?>" class="form-control" placeholder="Email">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
+
           <div class="row">
             <div class="col-12">
               <button type="submit" name="reset_pwd" class="btn btn-primary btn-block">Request new password</button>
