@@ -272,10 +272,10 @@
 
           <!--Password Resets-->
           <li class="nav-item">
-            <a href="pages_manage_reset_pwd.php" class="nav-link">
-              <i class="nav-icon fas fa-lock"></i>
+            <a href="pages_system_settings.php" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
               <p>
-                Manage Resets
+                System Settings
               </p>
             </a>
           </li>
