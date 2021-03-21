@@ -128,7 +128,7 @@ $stmt->close();
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">iBanking Staff Dashboard</h1>
+              <h1 class="m-0 text-dark">Staff Dashboard</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -152,7 +152,7 @@ $stmt->close();
               <div class="info-box">
                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Clients</span>
+                  <span class="info-box-text"> Clients</span>
                   <span class="info-box-number">
                     <?php echo $iBClients; ?>
                   </span>
@@ -169,7 +169,7 @@ $stmt->close();
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-success elevation-1"><i class="fas fa-briefcase"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Account Types</span>
+                  <span class="info-box-text"> Account Types</span>
                   <span class="info-box-number"><?php echo $iB_AccsType; ?></span>
                 </div>
               </div>
@@ -181,7 +181,7 @@ $stmt->close();
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Accounts</span>
+                  <span class="info-box-text"> Accounts</span>
                   <span class="info-box-number"><?php echo $iB_Accs; ?></span>
                 </div>
               </div>
@@ -195,7 +195,7 @@ $stmt->close();
               <div class="info-box">
                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-upload"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Deposits</span>
+                  <span class="info-box-text"> Deposits</span>
                   <span class="info-box-number">
                     Ksh <?php echo $iB_deposits; ?>
                   </span>
@@ -210,7 +210,7 @@ $stmt->close();
                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-download"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Withdrawals</span>
+                  <span class="info-box-text">Withdrawals</span>
                   <span class="info-box-number">Ksh <?php echo $iB_withdrawal; ?> </span>
                 </div>
               </div>
@@ -225,7 +225,7 @@ $stmt->close();
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-success elevation-1"><i class="fas fa-random"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Transfers</span>
+                  <span class="info-box-text">Transfers</span>
                   <span class="info-box-number">Ksh <?php echo $iB_Transfers; ?></span>
                 </div>
               </div>
@@ -237,7 +237,7 @@ $stmt->close();
               <div class="info-box mb-3">
                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-money-bill-alt"></i></span>
                 <div class="info-box-content">
-                  <span class="info-box-text">iBank Wallet Balance</span>
+                  <span class="info-box-text">Wallet Balance</span>
                   <span class="info-box-number">Ksh <?php echo $TotalBalInAccount; ?></span>
                 </div>
               </div>
@@ -461,7 +461,7 @@ $stmt->close();
         exportEnabled: false,
         animationEnabled: true,
         title: {
-          text: "iBank Acc Per Acc Types "
+          text: "Accounts Per Acc Types "
         },
         legend: {
           cursor: "pointer",

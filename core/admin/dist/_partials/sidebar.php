@@ -79,7 +79,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>
                 <p>
-                  iBank Staff
+                   Staff
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -105,7 +105,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                  iBank Clients
+                   Clients
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -131,7 +131,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-briefcase"></i>
                 <p>
-                  iBank Accounts
+                   Accounts
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -151,7 +151,7 @@
                 <li class="nav-item">
                   <a href="pages_open_acc.php" class="nav-link">
                     <i class="fas fa-lock-open nav-icon"></i>
-                    <p>Open iBank Acc</p>
+                    <p>Open  Acc</p>
                   </a>
                 </li>
                 <li class="nav-item">
