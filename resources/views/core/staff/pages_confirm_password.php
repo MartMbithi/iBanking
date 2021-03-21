@@ -61,11 +61,11 @@ if (isset($_POST['confirm_reset_password'])) {
                 $res = $stmt->get_result();
                 while ($row = $res->fetch_object()) {
                 ?>
-                    <p class="login-box-msg"><?php echo $row->staff_name; ?> Please Enter And Confirm Your Password</p>
+                    <p class="login-box-msg"><?php echo $row->name; ?> Please Enter And Confirm Your Password</p>
                 <?php } ?>
                 <form method="POST">
                     <div class="input-group mb-3">
-                        <input type="password" required name="new_password" class="form-control" placeholder="Email">
+                        <input type="password" required name="new_password" class="form-control" placeholder="New Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -73,7 +73,7 @@ if (isset($_POST['confirm_reset_password'])) {
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" required name="confirm_password" class="form-control" placeholder="Email">
+                        <input type="password" required name="confirm_password" class="form-control" placeholder="Confirm Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
