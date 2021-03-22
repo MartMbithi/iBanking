@@ -1,4 +1,3 @@
-<p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/resources/views/core/assets/images/logo3.png"></p>
 
 ## iBanking
 
@@ -24,7 +23,6 @@ iBanking an Information System, which implements most of all basic features and 
 3. Client
     Create Client Account
 ```
-<p align="center"><img src="https://github.com/MartMbithi/iBanking/blob/master/public/1.png"></p>
 <p align="center"><img src="https://raw.githubusercontent.com/MartMbithi/iBanking/master/2.png"></p>
 <p align="center"><img src="https://raw.githubusercontent.com/MartMbithi/iBanking/master/3.png"></p>
 
