@@ -18,7 +18,7 @@ iBanking an Information System, which implements most of all basic features and 
 
 2. Staff
     Email    : staff@ibanking.com
-    Password : admin
+    Password : demo
 
 3. Client
     Create Client Account
