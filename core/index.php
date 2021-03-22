@@ -49,7 +49,7 @@ while ($sys = $res->fetch_object()) {
 
         <div class="intro py-5 py-lg-9 position-relative text-white">
             <div class="bg-overlay-primary">
-                <img src="img/photos/7.jpg" class="img-fluid img-cover" alt="Robust UI Kit" />
+                <img src="dist/bg.webp" class="img-fluid img-cover"/>
             </div>
             <div class="intro-content py-6 text-center">
                 <div class="container">
@@ -59,6 +59,8 @@ while ($sys = $res->fetch_object()) {
                             <p class="lead mb-3">
                                 <?php echo $sys->sys_tagline; ?>
                             </p>
+                            <br>
+                            <a class="btn btn-success btn-lg mr-lg-2 my-1" target="_blank" href="client/pages_client_signup.php" role="button">Get started</a>
                         </div>
                     </div>
                 </div>
