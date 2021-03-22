@@ -10,7 +10,7 @@ while ($sys = $res->fetch_object()) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php echo $sys->sys_name;?> - <?php echo $sys->sys_tagline;?></title>
+        <title><?php echo $sys->sys_name; ?> - <?php echo $sys->sys_tagline; ?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- overlayScrollbars -->
@@ -29,6 +29,8 @@ while ($sys = $res->fetch_object()) {
         <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
         <!--load swal js -->
         <script src="dist/js/swal.js"></script>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="../admin/dist/img/<?php echo $sys->sys_logo; ?>">
 
         <!--Inject SWAL-->
         <?php if (isset($success)) { ?>

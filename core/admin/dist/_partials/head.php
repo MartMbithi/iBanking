@@ -28,6 +28,8 @@ while ($sys = $res->fetch_object()) {
         <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
         <!--load swal js -->
         <script src="dist/js/swal.js"></script>
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="dist/img/<?php echo $sys->sys_logo; ?>">
 
         <!--Inject SWAL-->
         <?php if (isset($success)) { ?>
