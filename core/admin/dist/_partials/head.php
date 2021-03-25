@@ -6,6 +6,7 @@ $stmt->execute(); //ok
 $res = $stmt->get_result();
 while ($sys = $res->fetch_object()) {
 ?>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +31,8 @@ while ($sys = $res->fetch_object()) {
         <script src="dist/js/swal.js"></script>
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="16x16" href="dist/img/<?php echo $sys->sys_logo; ?>">
+        <!-- Data Tables CSS -->
+        <link rel="stylesheet" type="text/css" href="plugins/datatable/custom_dt_html5.css">
 
         <!--Inject SWAL-->
         <?php if (isset($success)) { ?>
@@ -111,6 +114,6 @@ while ($sys = $res->fetch_object()) {
                 });
             }
         </script>
-
+        
     </head>
 <?php } ?>
